@@ -1,0 +1,91 @@
+{
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "session-report@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true
+  },
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": ["Thinking...", "Purring...", "Paw-sing...", "Meow-ing...", "Napping on it...", "Kneading the code..."]
+  },
+  "spinnerTipsOverride": {
+    "excludeDefault": true,
+    "tips": [
+      "🐱 Good things take time... like a cat bath.",
+      "🐾 Paw-sitively working on it.",
+      "😸 Every bug is just a cat toy.",
+      "🐈 Ctrl+C is the cat's favorite shortcut.",
+      "💤 Not sleeping, just thinking with eyes closed."
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo $(date +%s) > /tmp/claude-session-start; echo ''; echo '  /\\_/\\  '; echo ' ( o.o ) '; echo '  > ^ <  Claude Code ready. Meow.'; echo ''",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "icon=$HOME/.claude/assets/icon.png; start=$(cat /tmp/claude-session-start 2>/dev/null || echo 0); now=$(date +%s); elapsed=$((now - start)); if [ $elapsed -gt 30 ]; then if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"✅ Task complete (${elapsed}s)\" -appIcon \"$icon\" -sound Purr 2>/dev/null; else osascript -e 'display notification \"✅ Task complete\" with title \"Claude Code 🐱\" sound name \"Purr\"' 2>/dev/null; fi; fi"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "icon=$HOME/.claude/assets/icon.png; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"⚠️ Waiting for your approval — $tool\" -appIcon \"$icon\" -sound Sosumi 2>/dev/null; else osascript -e \"display notification \\\"⚠️ Waiting for your approval — $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Sosumi\\\"\" 2>/dev/null; fi",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "icon=$HOME/.claude/assets/icon.png; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"❌ Error in $tool\" -appIcon \"$icon\" -sound Basso 2>/dev/null; else osascript -e \"display notification \\\"❌ Error in $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Basso\\\"\" 2>/dev/null; fi",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "icon=$HOME/.claude/assets/icon.png; msg=$(jq -r '.message // \"Meow?\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"🐾 $msg\" -appIcon \"$icon\" -sound Purr 2>/dev/null; else osascript -e \"display notification \\\"🐾 $msg\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Purr\\\"\" 2>/dev/null; fi",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -qE '^git commit'; then if [ -f './gradlew' ]; then ./gradlew classes -q 2>&1 || echo '{\"continue\": false, \"stopReason\": \"컴파일 에러가 있습니다. 수정 후 커밋하세요.\"}'; elif [ -f './mvnw' ]; then ./mvnw compile -q 2>&1 || echo '{\"continue\": false, \"stopReason\": \"컴파일 에러가 있습니다. 수정 후 커밋하세요.\"}'; fi; fi",
+            "statusMessage": "컴파일 체크 중..."
+          }
+        ]
+      }
+    ]
+  }
+}
