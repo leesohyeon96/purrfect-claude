@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"⚠️ Waiting for your approval — $tool\" -contentImage \"$icon\" -sound Sosumi 2>/dev/null; else osascript -e \"display notification \\\"⚠️ Waiting for your approval — $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Sosumi\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
+            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow-waiting.mp4; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"⚠️ Waiting for your approval — $tool\" -contentImage \"$icon\" -sound Sosumi 2>/dev/null; else osascript -e \"display notification \\\"⚠️ Waiting for your approval — $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Sosumi\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 7 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
             "async": true
           }
         ]
