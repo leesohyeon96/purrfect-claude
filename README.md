@@ -17,10 +17,10 @@ Four notification types, each with a different sound and context:
 Notifications only fire when they matter — no spam.
 
 ### 🐾 Cat Theme
-- Spinner verbs: `Purring...` / `Paw-sing...` / `Kneading the code...`
+- Spinner: `Purring...` / `Paw-sing...` / `Kneading the code...`
 - Loading tips with cat puns
 - ASCII cat on session start
-- Custom notification icon (replace with your own)
+- Custom notification icon + sound (replace with your own)
 
 ### ⚙️ Developer Defaults (CLAUDE.md)
 - Short, direct responses
@@ -33,8 +33,9 @@ Notifications only fire when they matter — no spam.
 
 ---
 
-## Install
+## How to use
 
+### Option A — Just clone & install (no customization)
 ```bash
 git clone https://github.com/leesohyeon96/purrfect-claude.git
 cd purrfect-claude
@@ -42,7 +43,20 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Restart Claude Code after install.
+### Option B — Fork & customize (recommended)
+
+1. **Fork** this repo (top-right button on GitHub)
+2. **Clone your fork**
+```bash
+git clone https://github.com/YOUR_USERNAME/purrfect-claude.git
+cd purrfect-claude
+```
+3. **Customize** (see below)
+4. **Install**
+```bash
+chmod +x install.sh
+./install.sh
+```
 
 ---
 
@@ -50,15 +64,27 @@ Restart Claude Code after install.
 
 **Notification icon** — replace with any PNG:
 ```bash
-cp your-image.png ~/.claude/assets/icon.png
+cp your-image.png assets/icon.png
 ```
 
-**CLAUDE.md rules** — edit directly:
+**Notification sound** — replace with any mp3/mp4/wav:
+```bash
+cp your-sound.mp3 assets/meow.mp4
+```
+
+**Toggle meow sound** — edit `settings.json`:
+```json
+"env": {
+  "PURRFECT_SOUND": "off"
+}
+```
+
+**CLAUDE.md rules** — edit `CLAUDE.md` before installing, or after:
 ```bash
 open ~/.claude/CLAUDE.md
 ```
 
-**Add new rules anytime** — just tell Claude:
+**Add rules anytime** — just tell Claude:
 > "Add X rule to CLAUDE.md"
 
 ---
@@ -66,12 +92,14 @@ open ~/.claude/CLAUDE.md
 ## Requirements
 - macOS
 - [Claude Code](https://claude.ai/code)
-- Homebrew (for `terminal-notifier`)
+- Homebrew (`terminal-notifier` is installed automatically)
 
-> Note: macOS restricts left-side notification icons to app bundles.  
+> **Note:** macOS restricts the left-side notification icon to app bundles.
 > The cat image appears on the right side of the notification.
 
 ---
 
-## Korean version
-Korean branch coming soon.
+## 한국어 버전
+```bash
+git clone -b korean https://github.com/leesohyeon96/purrfect-claude.git
+```

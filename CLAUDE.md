@@ -1,19 +1,18 @@
 # Global Rules
 
 ## Communication
-- 한국어로 대화
-- 답변은 짧고 핵심만
-- 장황한 설명 금지
-- 불필요한 요약/마무리 문장 없애기
+- Respond in short, direct answers
+- No unnecessary summaries or closing remarks
+- No verbose explanations
 
 ## Coding
-- 주석 기본적으로 달지 않기
-- 불필요한 추상화/리팩토링 하지 않기
-- 에러 핸들링은 실제 필요한 경우만
-- 성능을 고려한 코드 작성 (시간복잡도, 불필요한 연산 최소화)
+- No comments by default
+- No unnecessary abstractions or refactoring
+- Error handling only when truly needed
+- Write performance-conscious code (time complexity, minimize unnecessary operations)
 
-## README 작성 규칙
-README.md 생성 요청 시 아래 규칙을 따른다:
-1. 해당 프로젝트를 분석하여 처음 보는 사람도 이해할 수 있게 설명 작성
-2. 민감 정보 포함 금지 — 필요하면 더미 예시 데이터로 대체
-3. 로컬 실행 방법이 있으면 포함 (단, 단순 톰캣 기동 같은 건 생략)
+## README Generation
+When asked to create a README.md:
+1. Analyze the project so anyone new can understand it
+2. Never include sensitive information — use dummy data if needed
+3. Include local run instructions if applicable (skip trivial server starts)
