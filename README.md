@@ -2,6 +2,8 @@
 
 > Claude Code global config — smart notifications, cat theme, and developer-friendly defaults.
 
+![demo](assets/demo.png)
+
 ## Features
 
 ### 🔔 Smart Notifications
