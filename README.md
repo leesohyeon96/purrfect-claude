@@ -99,7 +99,41 @@ open ~/.claude/CLAUDE.md
 
 ---
 
-## 한국어 버전
+---
+
+## 한국어 버전 🐱
+
+> Claude Code 전역 설정 — 스마트 알림, 고양이 테마, 개발자 친화적 기본값.
+
+### 사용 방법
+
+**A — 그냥 클론해서 설치**
 ```bash
 git clone -b korean https://github.com/leesohyeon96/purrfect-claude.git
+cd purrfect-claude
+chmod +x install.sh
+./install.sh
 ```
+
+**B — Fork해서 커스터마이즈 (추천)**
+
+1. GitHub에서 **Fork** (우측 상단 버튼)
+2. 내 fork 클론
+```bash
+git clone -b korean https://github.com/YOUR_USERNAME/purrfect-claude.git
+cd purrfect-claude
+```
+3. 커스터마이즈 후 설치
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+### 커스터마이즈
+
+| 항목 | 방법 |
+|---|---|
+| 알림 아이콘 | `assets/icon.png` 교체 |
+| 알림 소리 | `assets/meow.mp4` 교체 |
+| 냐옹 소리 on/off | `settings.json` → `PURRFECT_SOUND: "off"` |
+| CLAUDE.md 규칙 추가 | Claude한테 "CLAUDE.md에 ~추가해줘" |
