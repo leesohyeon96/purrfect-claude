@@ -18,8 +18,13 @@ Four notification types, each with a different sound and context:
 
 Notifications only fire when they matter — no spam.
 
+**Waiting for input**
 ![Waiting for input](assets/notify-waiting.png)
+
+**Waiting for approval**
 ![Waiting for approval](assets/notify-approval.png)
+
+**Task complete**
 ![Task complete](assets/notify-complete.png)
 
 ### 🐾 Cat Theme
