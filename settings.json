@@ -40,7 +40,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; start=$(cat /tmp/claude-session-start 2>/dev/null || echo 0); now=$(date +%s); elapsed=$((now - start)); if [ $elapsed -gt 30 ]; then if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"✅ Task complete (${elapsed}s)\" -contentImage \"$icon\" -sound Purr 2>/dev/null; else osascript -e 'display notification \"✅ Task complete\" with title \"Claude Code 🐱\" sound name \"Purr\"' 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true; fi"
+            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; start=$(cat /tmp/claude-session-start 2>/dev/null || echo 0); now=$(date +%s); elapsed=$((now - start)); if [ $elapsed -gt 30 ]; then if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"✅ Task complete (${elapsed}s)\" -contentImage \"$icon\" -sound Purr 2>/dev/null; else osascript -e 'display notification \"✅ Task complete\" with title \"Claude Code 🐱\" sound name \"Purr\"' 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5.5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true; fi"
           }
         ]
       }
@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow-waiting.mp4; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"⚠️ Waiting for your approval — $tool\" -contentImage \"$icon\" -sound Sosumi 2>/dev/null; else osascript -e \"display notification \\\"⚠️ Waiting for your approval — $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Sosumi\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 7 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
+            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow-waiting.mp4; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"⚠️ Waiting for your approval — $tool\" -contentImage \"$icon\" -sound Sosumi 2>/dev/null; else osascript -e \"display notification \\\"⚠️ Waiting for your approval — $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Sosumi\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 2 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
             "async": true
           }
         ]
@@ -61,7 +61,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"❌ Error in $tool\" -contentImage \"$icon\" -sound Basso 2>/dev/null; else osascript -e \"display notification \\\"❌ Error in $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Basso\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
+            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow-error.mp3; tool=$(jq -r '.tool_name // \"tool\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"❌ Error in $tool\" -contentImage \"$icon\" -sound Basso 2>/dev/null; else osascript -e \"display notification \\\"❌ Error in $tool\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Basso\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
             "async": true
           }
         ]
@@ -72,7 +72,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; msg=$(jq -r '.message // \"Meow?\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"🐾 $msg\" -contentImage \"$icon\" -sound Purr 2>/dev/null; else osascript -e \"display notification \\\"🐾 $msg\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Purr\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
+            "command": "icon=$HOME/.claude/assets/icon.png; sound=$HOME/.claude/assets/meow.mp4; msg=$(jq -r '.message // \"Meow?\"'); if [ -f \"$icon\" ]; then terminal-notifier -title \"Claude Code\" -message \"🐾 $msg\" -contentImage \"$icon\" -sound Purr 2>/dev/null; else osascript -e \"display notification \\\"🐾 $msg\\\" with title \\\"Claude Code 🐱\\\" sound name \\\"Purr\\\"\" 2>/dev/null; fi; [ \"${PURRFECT_SOUND}\" = \"on\" ] && { if [ -f \"$sound\" ]; then afplay -v 5.5 \"$sound\" 2>/dev/null; else say -v Yuna \"냐옹\" 2>/dev/null; fi; } || true",
             "async": true
           }
         ]
